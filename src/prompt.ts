@@ -5,7 +5,7 @@ import {
   getExplanation,
   getRevision,
   getScriptAndInfo,
-} from './helpers/completion';
+} from './helpers/completion-rc';
 import { getConfig } from './helpers/config';
 import { projectName } from './helpers/constants';
 import { KnownError } from './helpers/error';
@@ -120,7 +120,7 @@ export async function prompt({
   spin.stop(`${i18n.t('Your script')}:`);
   console.log('');
   const script = await readScript(process.stdout.write.bind(process.stdout));
-  console.log('script', script);
+  // console.log('script', script);
   console.log('');
   console.log('');
   console.log(dim('•'));

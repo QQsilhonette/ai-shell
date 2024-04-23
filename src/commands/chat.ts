@@ -1,7 +1,7 @@
 import { command } from 'cleye';
 import { spinner, intro, outro, text, isCancel } from '@clack/prompts';
 import { cyan, green } from 'kolorist';
-import { generateCompletion, readData } from '../helpers/completion';
+import { generateCompletion, readData_new } from '../helpers/completion-rc';
 import { getConfig } from '../helpers/config';
 import { streamToIterable } from '../helpers/stream-to-iterable';
 import { ChatCompletionRequestMessage } from 'openai';
@@ -91,8 +91,7 @@ async function getResponse({
     number,
     apiEndpoint,
   });
-
   const iterableStream = streamToIterable(stream);
 
-  return { readResponse: readData(iterableStream) };
+  return { readResponse: readData_new(stream) };
 }
